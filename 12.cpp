@@ -24,16 +24,20 @@ int main()
 
     do
     {
-    cout << "Make a guess: ";
+    cout << "Make a guess from 1 to 100: ";
     cin >> input;
 
-    if(input > answer)
+    if (input < 1 || input > 100)
+    {
+        cout << "That input wasn't valid..." << endl;
+    } else if (input > answer)
     {
         cout << "Your number is too HIGH!" << endl;
     } else if (input < answer)
     {
         cout << "Your number is too LOW!" << endl;
-    }
+    } 
+    cin.clear();
     } while (input != answer);
 
     cout << "Huzzah! The answer was " << answer << "!" << endl;

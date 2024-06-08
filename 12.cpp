@@ -21,6 +21,7 @@ int main()
     srand(time(nullptr));
     int answer = rand() % 100 + 1; //number between 1 and 100 inclusive
     int input = 0;
+    int count = 0;
 
     do
     {
@@ -38,9 +39,65 @@ int main()
         cout << "Your number is too LOW!" << endl;
     } 
     cin.clear();
+    count++;
     } while (input != answer);
 
     cout << "Huzzah! The answer was " << answer << "!" << endl;
+    cout << "And it only took you... " << count << " tries!!" << endl;
+
+    if (count == 1)
+    {
+        cout << "NO. FUDGING. WAY." << endl;
+    } else if (count < 5)
+    {
+        cout << "That's pretty awesome." << endl;
+    } else if (count < 10)
+    {
+        cout << "Not bad." << endl;
+    } else
+    {
+        cout << "Uff dah." << endl;
+    }
 
     return 0;
 }
+
+
+/* Example from Book uses a variable flag for loop continuation
+int main() {
+    bool guessedNumber = false;     // this bit here keep the loop going until the value is true
+    int guessCount = 0;
+    int ourGuess;
+    int computerNumber = rand() % 100 + 1; // guess you don't need a new seed every time?
+
+    while (!guessedNumber)
+    {
+        cout << "Enter guess" << endl;
+        cin >> ourGuess;
+
+        if (ourGuess > 100 || ourGuess < 1)
+        {
+            cout << "wasted guess" << endl;
+            guessCount++;
+            countinue; //sends back to top instead of going on below
+        }
+
+        if (ourGuess == computerGuess)
+        {
+            cout << "yay, win." << guessCount << endl;
+            guessedNumber = true;
+
+        } else if (ourGuess > computerNumber)
+        {
+            cout << "guess too high" << endl;
+        } else if (ourGuess < computerNumber)
+        {
+            cout << "guess too low" << endl;
+        }
+        guessCount++;
+    } // end while
+
+}
+
+
+*/
